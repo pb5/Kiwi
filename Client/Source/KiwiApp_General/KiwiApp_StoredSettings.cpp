@@ -254,6 +254,16 @@ namespace kiwi
         m_network.use().addListener(this);
     }
     
+    std::string StoredSettings::keyToString(Key key)
+    {
+        std:::string return_value = "";
+        
+        switch(key)
+        {
+            case:
+        }
+    }
+    
     StoredSettings::~StoredSettings()
     {
         m_network.use().removeListener(this);

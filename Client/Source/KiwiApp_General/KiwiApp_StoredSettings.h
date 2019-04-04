@@ -113,8 +113,30 @@ namespace kiwi
     // ================================================================================ //
     
     //! @brief Settings storage class utility.
-    class StoredSettings : public juce::ValueTree::Listener
+    class StoredSettings
     {
+    public: // classes
+        
+        enum class Key
+        {
+            empty,
+            browser_sort_type,
+            audio_settings,
+            suggest_popup_size,
+            about_kiwi_window,
+            console_window,
+            beacon_window,
+            settings_window,
+            last_save_dir,
+            last_open_dir,
+            last_download_dir,
+            last_upload_dir,
+            host,
+            api_port,
+            session_port,
+            remember_me
+        };
+        
     public: // methods
         
         //! @brief Constructor.
@@ -136,6 +158,8 @@ namespace kiwi
         NetworkSettings& network();
         
     private: // methods
+        
+        std::string keyToString(Key key) const;
         
         void saveValueTree(juce::ValueTree const& vt, std::string const& key_name);
         void changed();
